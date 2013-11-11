@@ -148,7 +148,7 @@ if __name__ == '__main__':
     parser.add_argument(
         '--source', type=str, required=True, metavar='URL',
         help='source to read from; can be a file containing sources or a url like: host[:port]/db/collection; '
-             'e.g. localhost:27017/prod_maestro.emails')
+             'e.g. localhost:27017/prod_maestro/emails')
     parser.add_argument(
         '--dest', type=str, required=True, metavar='URL',
         help='source to read from; see --source for format')

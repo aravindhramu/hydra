@@ -123,10 +123,10 @@ def _compare_ids_worker(_ids, source_collection, dest_collection, stats, retry_p
     """
     # read docs in
     source_docs = [doc for doc in source_collection.find({'_id': {'$in': _ids}})]
-    source_docs_dict = {doc['_id']: doc for doc in source_docs}
+    source_docs_dict = dict((doc['_id'],doc) for doc in source_docs)
 
     dest_docs = [doc for doc in dest_collection.find({'_id': {'$in': _ids}})]
-    dest_docs_dict = {doc['_id']: doc for doc in dest_docs}
+    dest_docs_dict = dict((doc['_id'],doc) for doc in dest_docs)
 
     # find mismatching docs
     for _id in _ids:

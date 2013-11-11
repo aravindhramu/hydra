@@ -51,8 +51,7 @@ def copy_collection_parent(sources, dest, state_db, args):
         state_db.add_source_and_dest(source, dest)
 
     # space-pad all process names so that tabular output formats line up
-    process_names = {repr(source): "%s:%d" % (source['host'], source['port'])
-                     for source in sources}
+    process_name = dict((repr(source),"%s:%d" % (source['host'],source['port'])) for source in sources)
     process_names['parent'] = PARENT_PROCESS_NAME
     max_process_name_len = max(len(name) for name in process_names.itervalues())
     for key in process_names:
